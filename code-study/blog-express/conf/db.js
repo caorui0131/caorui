@@ -1,11 +1,13 @@
-const env = process.env.NODE_ENV  // 环境参数
+//存储数据库的配置
+//1.获取环境变量  process:nodejs进程信息
+const env = process.env.NODE_ENV//环境参数
 
-// 配置
+//定义配置的值
 let MYSQL_CONF
 let REDIS_CONF
 
-if (env === 'dev') {
-    // mysql
+if(env==='dev'){
+    //mysql配置
     MYSQL_CONF = {
         host: 'localhost',
         user: 'root',
@@ -13,14 +15,12 @@ if (env === 'dev') {
         port: '3306',
         database: 'myblog'
     }
-
-    // redis
+    // redis配置
     REDIS_CONF = {
         port: 6379,
         host: '127.0.0.1'
     }
 }
-
 if (env === 'production') {
     // mysql
     MYSQL_CONF = {
@@ -37,8 +37,7 @@ if (env === 'production') {
         host: '127.0.0.1'
     }
 }
-
-module.exports = {
+module.exports={
     MYSQL_CONF,
     REDIS_CONF
 }
